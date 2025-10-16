@@ -1,7 +1,7 @@
 'use client';
 
 import {useChat} from '@ai-sdk/react';
-import {MessageCircle, Sparkles, UserCircle} from 'lucide-react';
+import {MessageCircle, Send, Sparkles, UserCircle} from 'lucide-react';
 import * as Avatar from '@radix-ui/react-avatar';
 
 export default function Chat() {
@@ -12,7 +12,7 @@ export default function Chat() {
     return (
         <div className="flex h-screen w-screen items-center justify-center bg-background p-8">
             {/* Chat Container - 70% of viewport */}
-            <div className="flex flex-col h-[70vh] w-[70vw] border border-border rounded-xl shadow-lg bg-card">
+            <div className="flex flex-col h-[70vh] w-[70vw] border border-border rounded-xl shadow-lg bg-zinc-800">
                 {/* Messages Area */}
                 <div className="flex-1 overflow-y-auto p-6">
                     {messages.length === 0 ? (
@@ -43,8 +43,8 @@ export default function Chat() {
                                     <div
                                         className={`max-w-[80%] rounded-lg px-3 py-2 ${
                                             message.role === 'user'
-                                                ? 'bg-blue-400 text-white'
-                                                : 'bg-muted text-foreground'
+                                                ? 'bg-blue-600 text-white'
+                                                : 'bg-zinc-700 text-foreground'
                                         }`}
                                     >
                                         {message.parts
@@ -58,7 +58,7 @@ export default function Chat() {
 
                                     {/* Avatar - right side for user */}
                                     {message.role === 'user' && (
-                                        <Avatar.Root className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center bg-blue-400 text-white">
+                                        <Avatar.Root className="flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center bg-blue-600 text-white">
                                             <Avatar.Fallback>
                                                 <UserCircle className="w-5 h-5"/>
                                             </Avatar.Fallback>
@@ -95,9 +95,9 @@ export default function Chat() {
                         <button
                             type="submit"
                             disabled={status === 'streaming'}
-                            className="px-6 py-3 bg-blue-400 text-white rounded-lg hover:bg-blue-400 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+                            className="px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
                         >
-                            {status === 'streaming' ? 'Sending...' : 'Send'}
+                            <Send className="w-5 h-5" />
                         </button>
                     </form>
                 </div>
