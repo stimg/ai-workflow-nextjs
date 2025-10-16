@@ -5,9 +5,7 @@ import {MessageCircle, Send, Sparkles, UserCircle} from 'lucide-react';
 import * as Avatar from '@radix-ui/react-avatar';
 
 export default function Chat() {
-    const {messages, status, sendMessage} = useChat({
-        api: '/api/chat',
-    });
+    const {messages, status, sendMessage} = useChat();
 
     return (
         <div className="flex h-screen w-screen items-center justify-center bg-background p-8">
